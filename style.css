@@ -1,0 +1,409 @@
+/* === BARCA THEME === */
+:root {
+    --void: #0a0a1a;
+    --surface: #141428;
+    --panel: #1e1e3c;
+    --brand: #004D98;
+    --brand2: #A50044;
+    --fg: #f1f5f9;
+    --muted: #8899aa;
+    --edge: rgba(255,255,255,0.065);
+    --wall: radial-gradient(ellipse at 30% 20%, #1a1a4e 0%, #0a0a1a 100%);
+}
+
+[data-theme="light"] {
+    --void: #f0f0f5;
+    --surface: #e8e8f0;
+    --panel: #d0d0e0;
+    --fg: #1a1a2e;
+    --muted: #555577;
+    --edge: rgba(0,0,0,0.08);
+    --wall: radial-gradient(ellipse at 30% 20%, #e0e0f0 0%, #c0c0d8 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--void);
+    color: var(--fg);
+    overflow: hidden;
+    height: 100vh;
+    user-select: none;
+}
+
+/* === DESKTOP === */
+#desk {
+    height: calc(100vh - 42px);
+    position: relative;
+    padding: 20px;
+    background: var(--wall);
+    transition: background 0.3s;
+}
+
+/* === APP ICONS === */
+.appIcon {
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 24px;
+    transition: transform 0.15s;
+}
+.appIcon:hover { transform: scale(1.08); }
+.appIcon:active { transform: scale(0.95); }
+
+.appIco {
+    width: 56px; height: 56px;
+    background: var(--panel);
+    border-radius: 14px;
+    margin: 0 auto 6px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--edge);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.appIco svg, .appIco img {
+    width: 32px; height: 32px;
+}
+
+.appName {
+    font-size: 11px;
+    color: var(--muted);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* === BARCA LOGO === */
+.barca-logo {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, #004D98 50%, #A50044 50%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+}
+
+/* === WINDOWS === */
+.win {
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    border-radius: 10px;
+    min-width: 320px;
+    min-height: 200px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.winHead {
+    height: 34px;
+    background: var(--panel);
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    cursor: move;
+    border-bottom: 1px solid var(--edge);
+}
+
+.winIcon { font-size: 14px; margin-right: 6px; }
+.winTitle { flex: 1; font-size: 12px; color: var(--muted); font-weight: 500; }
+
+.winBtns { display: flex; gap: 8px; }
+.winBtn {
+    width: 24px; height: 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background: rgba(255,255,255,0.1);
+    color: var(--muted);
+}
+.winBtn:hover { background: rgba(255,255,255,0.2); transform: scale(1.1); }
+.btnX:hover { background: #ff5f57; color: white; }
+.btnMin:hover { background: #febc2e; color: white; }
+.btnMax:hover { background: #28c840; color: white; }
+
+.winBody {
+    flex: 1;
+    padding: 14px;
+    overflow: auto;
+    color: var(--fg);
+    display: flex;
+    flex-direction: column;
+}
+
+/* === TASKBAR === */
+#bartab {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 42px;
+    background: var(--panel);
+    border-top: 1px solid var(--edge);
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    z-index: 99999;
+    backdrop-filter: blur(20px);
+}
+
+#Start {
+    padding: 5px 14px;
+    background: var(--brand);
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#barca-apps {
+    display: flex;
+    margin-left: 12px;
+    gap: 6px;
+    flex: 1;
+}
+
+.barTab {
+    padding: 4px 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--edge);
+    border-radius: 4px;
+    color: var(--muted);
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.barTab:hover { background: rgba(255,255,255,0.1); }
+.barTab.live {
+    background: rgba(0,77,152,0.3);
+    color: var(--fg);
+    border-color: rgba(0,77,152,0.4);
+}
+.barTab.hidden { opacity: 0.4; }
+
+#time {
+    color: var(--muted);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* === CONTEXT MENU === */
+#deskMenu {
+    display: none;
+    position: absolute;
+    background: var(--surface);
+    border: 1px solid var(--edge);
+    border-radius: 6px;
+    padding: 5px 0;
+    min-width: 160px;
+    z-index: 999999;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.deskItem {
+    padding: 7px 16px;
+    color: var(--muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.1s;
+}
+.deskItem:hover {
+    background: var(--panel);
+    color: var(--fg);
+}
+.deskSep {
+    height: 1px;
+    background: var(--edge);
+    margin: 4px 0;
+}
+
+/* === TERMINAL === */
+#term-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #4ade80;
+}
+
+#term-out {
+    flex: 1;
+    overflow: auto;
+    margin-bottom: 4px;
+}
+
+.term-line { margin-bottom: 3px; white-space: pre-wrap; }
+
+.term-input-line {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.term-input {
+    background: transparent;
+    border: none;
+    color: #4ade80;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    outline: none;
+    flex: 1;
+    caret-color: #4ade80;
+}
+
+/* === CALCULATOR === */
+.calc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+    flex: 1;
+}
+
+.calc-btn {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--edge);
+    color: var(--fg);
+    font-size: 18px;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+.calc-btn:hover { background: rgba(255,255,255,0.1); }
+.calc-btn.op { background: rgba(0,77,152,0.3); }
+.calc-btn.eq { background: rgba(40,200,64,0.3); }
+.calc-btn.clear { background: rgba(165,0,68,0.3); }
+
+#calc-display {
+    grid-column: span 4;
+    background: rgba(0,0,0,0.2);
+    padding: 12px;
+    text-align: right;
+    font-size: 24px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* === BROWSER === */
+.browser-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.browser-bar input {
+    flex: 1;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--edge);
+    color: var(--fg);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.browser-bar button {
+    background: var(--brand);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.browser-frame {
+    flex: 1;
+    border: 1px solid var(--edge);
+    border-radius: 6px;
+    background: white;
+}
+
+.browser-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 6px;
+}
+
+/* === CHESS === */
+.chess-board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    width: 280px;
+    height: 280px;
+    border: 2px solid var(--edge);
+    margin: 0 auto;
+}
+
+.chess-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.chess-square.light { background: #f0d9b5; }
+.chess-square.dark { background: #b58863; }
+.chess-square.selected { background: rgba(0,77,152,0.5) !important; }
+
+/* === SNAKE === */
+#snake-canvas {
+    border: 1px solid var(--edge);
+    border-radius: 6px;
+    margin: 0 auto;
+    display: block;
+}
+
+.game-controls {
+    text-align: center;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* === UTILITIES === */
+.blink { animation: blink 1s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.toggle-btn {
+    background: var(--panel);
+    border: 1px solid var(--edge);
+    color: var(--fg);
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 11px;
+    margin-left: 8px;
+}
+
+body {
+
+  background-image: url('url(../Downloads/0d1560f6f020b3336402fcbc550f86d7.jpg)');
+
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  background-attachment: fixed;
+}

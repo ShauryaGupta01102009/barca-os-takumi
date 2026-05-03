@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barca OS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- DESKTOP -->
+    <div id="desk">
+        <div class="appIcon" onclick="event.stopPropagation(); spawn('term', 'Terminal', '💻')">
+            <div class="appIco">💻</div>
+            <div class="appName">Terminal</div>
+        </div>
+        <div class="appIcon" onclick="event.stopPropagation(); spawn('note', 'Notepad', '📝')">
+            <div class="appIco">📝</div>
+            <div class="appName">Notepad</div>
+        </div>
+        <div class="appIcon" onclick="event.stopPropagation(); spawn('calc', 'Calculator', '🧮')">
+            <div class="appIco">🧮</div>
+            <div class="appName">Calculator</div>
+        </div>
+        <div class="appIcon" onclick="event.stopPropagation(); spawn('browser', 'Browser', '🌐')">
+            <div class="appIco">🌐</div>
+            <div class="appName">Browser</div>
+        </div>
+        <div class="appIcon" onclick="event.stopPropagation(); spawn('chess', 'Chess', '♟️')">
+            <div class="appIco">♟️</div>
+            <div class="appName">Chess</div>
+        </div>
+        <div class="appIcon" onclick="event.stopPropagation(); spawn('snake', 'Snake', '🐍')">
+            <div class="appIco">🐍</div>
+            <div class="appName">Snake</div>
+        </div>
+        <div class="appIcon" onclick="event.stopPropagation(); spawn('settings', 'Settings', '⚙️')">
+            <div class="appIco">⚙️</div>
+            <div class="appName">Settings</div>
+        </div>
+    </div>
+
+    <!-- TASKBAR -->
+    <div id="bartab">
+        <button id="Start" onclick="toggleTheme()">
+            <div class="barca-logo">B</div>
+            <span>Barca</span>
+        </button>
+        <div id="barca-apps"></div>
+        <button class="toggle-btn" onclick="toggleTheme()">🌓</button>
+        <div id="time">--:--</div>
+    </div>
+
+    <!-- CONTEXT MENU -->
+    <div id="deskMenu">
+        <div class="deskItem" onclick="alert('Refresh triggered')">Refresh</div>
+        <div class="deskItem" onclick="cycleWall()">Next Wallpaper</div>
+        <div class="deskItem" onclick="toggleTheme()">Toggle Light/Dark</div>
+        <div class="deskSep"></div>
+        <div class="deskItem" onclick="alert('Barca OS v1.0\nBuilt for FC Barcelona fans\nTakumi Hackathon 2026')">About</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
